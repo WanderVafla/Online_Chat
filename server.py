@@ -1,3 +1,4 @@
+import os
 import websockets
 import asyncio
 
@@ -14,8 +15,9 @@ async def echo(websocket):
         users.remove(websocket)
         
 async def main():
-    async with websockets.serve(echo, host='0.0.0.0', port=3000):
-        print('Server is started!')
+    port = int(os.environ.get("PORT", 3000))
+    async with websockets.serve(echo, host='0.0.0.0', port=port):
+        print('Server is started {port}!')
         await asyncio.Future()
         
 if __name__ == '__main__':
