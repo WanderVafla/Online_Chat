@@ -1,0 +1,23 @@
+body {
+    background-color: rgb(23, 21, 21);
+    color: antiquewhite;
+}
+
+#chatFrame {
+    margin: 0;
+    padding: 0;
+    border-width: 10px;
+    border-color: rgb(152, 39, 39);
+    background-color: gray;
+    size: 50%;
+
+}
+
+.border_line {
+    /* padding: -50%;
+    padding-bottom: 100%;
+    padding-top: 100%; */
+    position: static;
+    position-area: left;
+    background-color: brown;
+}

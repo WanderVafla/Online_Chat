@@ -8,21 +8,14 @@ async def echo(websocket):
         users.add(websocket)
         async for message in websocket:
             for user in users:
-                # await user.send(message)
-                # print(message)
-                if user == websocket:
-                    await user.send(message)
-                    print(message)
+                await user.send(message)
+                print(message)
     finally:
         users.remove(websocket)
-    
-    # async for message in websocket:
-    #     await websocket.send(message)
-    #     print(message)
         
 async def main():
-    async with websockets.serve(echo, 'localhost', 8080) as server:
-        print('Server is started ')
+    async with websockets.serve(echo, host='0.0.0.0', port=3000):
+        print('Server is started!')
         await asyncio.Future()
         
 if __name__ == '__main__':
